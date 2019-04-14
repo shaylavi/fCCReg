@@ -1,7 +1,9 @@
 
 <div class="container">
+    <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
+
+    <div [hidden]="submitted">
   <h1>Hero Form</h1>
-  <form>
     <div class="form-group">
       <label for="name">Name</label>
       <input type="text" class="form-control" id="name"
@@ -11,26 +13,42 @@
       <div [hidden]="name.valid || name.pristine"
            class="alert alert-danger">
         Name is required
-      </div>    </div>
+      </div>    
 
-    <div class="form-group">
-      <label for="alterEgo">Alter Ego</label>
-      <input type="text" class="form-control" id="alterEgo">
+      <label for="activity">What would you be working on?</label>
+      <input type="text" class="form-control" id="activity"
+             required
+             [(ngModel)]="model.activity" name="activity"
+             #name="ngModel">
+      <div [hidden]="name.valid || name.pristine"
+           class="alert alert-danger">
+        Name is required
+      </div>    
+
+      <label for="desires">What would you like to learn?</label>
+      <input type="text" class="form-control" id="desires"
+             required
+             [(ngModel)]="model.desires" name="desires"
+             #name="ngModel">
     </div>
-    <div class="form-group">
-      <input type="text" class="form-control" id="name"
-      required
-      [(ngModel)]="model.name" name="name">
-  
-      <label for="power">Hero Power</label>
-      <select class="form-control"  id="power"
-              required
-              [(ngModel)]="model.power" name="power">
-        <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
-      </select>
-  
-  
-    </div>
-    <button type="submit" (click)="AddUser()" class="btn btn-success">Submit</button>
+
+  </div>
+  <div [hidden]="!submitted">
+        <h2>You submitted the following:</h2>
+        <div class="row">
+          <div class="col-xs-3">Name</div>
+          <div class="col-xs-9">{{ model.name }}</div>
+        </div>
+        <div class="row">
+          <div class="col-xs-3">Activity</div>
+          <div class="col-xs-9">{{ model.activity }}</div>
+        </div>
+        <div class="row">
+          <div class="col-xs-3">Desires</div>
+          <div class="col-xs-9">{{ model.desires }}</div>
+        </div>
+        <br>
+      </div>
+    <button type="submit" (click)="AddUser" class="btn btn-success" [disabled]="!heroForm.form.valid">Submit</button>
   </form>
 </div>
