@@ -9,25 +9,27 @@
   background-color: #006400;
   vertical-align: middle;
   text-align: center;
-  font-size: 42pt;
+  font-weight: lighter;
+  font-size: 28pt;
   color: white;
 }
 
 #title {
-  height: 100px;
-  margin-top: -40px;
+  height: 70px;
+  margin-top: -20px;
 }
 #sponsor {
   position: absolute;
   left: 15px;
   top: 15px;
-  max-height: 210px;
+  max-height: 135px;
+  box-shadow: 0px 0px 5px #fff;
 }
 #registration {
   position: absolute;
   right: 15px;
   top: 15px;
-  max-height: 210px;
+  max-height: 120px;
 }
 .footer {
   /* vertical-align: middle;
@@ -39,6 +41,11 @@
   right: 40px;
   font-size: 42pt;
 }
+.page-footer {
+  height: 100px;
+  margin-top: 60px;
+  background-color: #006400;
+}
 .no-data {
   vertical-align: middle;
   text-align: center;
@@ -47,4 +54,15 @@
   align-items: center;
   justify-content: center;
   height: 500px;
+}
+.ng-valid[required],
+.ng-valid.required {
+  border-left: 5px solid #42a948; /* green */
+}
+
+.ng-invalid:not(form) {
+  border-left: 5px solid #a94442; /* red */
+}
+.form-group {
+  margin: 55px 0 55px 0;
 }

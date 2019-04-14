@@ -15,7 +15,7 @@ export class AppComponent {
       .list<User>('/users');
     }
 
-  model = new User('18', 'Dr IQ', 'Chuck Overstreet');
+  model = new User(null, null, null);
 
   submitted = false;
 
